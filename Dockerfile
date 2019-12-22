@@ -1,4 +1,4 @@
-FROM ubuntu
+FROM preghenella/eicenv
 
 USER root
 
@@ -26,14 +26,8 @@ RUN git clone https://github.com/sPHENIX-Collaboration/Singularity.git && \
     cd Singularity && \
     ./updatebuild.sh
 
-RUN echo "Europe/Geneva" > /etc/localtime
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN useradd --create-home --home-dir /home/user user
 
-USER user
-ENV HOME /home/user
-WORKDIR /home/user
-
-RUN git clone https://github.com/sPHENIX-Collaboration/macros.git
+USER ${username}
 
 ENTRYPOINT ["entrypoint.sh"]
