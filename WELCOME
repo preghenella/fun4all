@@ -1,0 +1,21 @@
+
+--------------------------------------------------------------------------------
+ Welcome to preghenella/fun4all Docker container
+--------------------------------------------------------------------------------
+
+ I have already started the sPHENIX singularity container.
+ Run the setup script and you are in business.
+ 
+ # source /opt/sphenix/core/bin/sphenix_setup.sh -n
+
+ The core-software respository for sPHENIX collaboration is
+
+ # https://github.com/sPHENIX-Collaboration/coresoftware
+
+ Official macros and tutorials can be obtained from
+
+ # git clone https://github.com/sPHENIX-Collaboration/macros.git
+ # git clone https://github.com/sPHENIX-Collaboration/tutorials.git
+
+--------------------------------------------------------------------------------
+

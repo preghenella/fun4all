@@ -4,6 +4,7 @@ USER root
 
 RUN apt-get update && \
     apt-get install -y \
+    sudo \
     python \
     dh-autoreconf \
     build-essential \
@@ -22,18 +23,20 @@ RUN git clone https://github.com/sylabs/singularity.git && \
     cd - && \
     rm -rf singularity
 
-RUN git clone https://github.com/sPHENIX-Collaboration/Singularity.git && \
-    cd Singularity && \
-    ./updatebuild.sh
+RUN useradd --create-home docker && \
+    passwd -d docker && \
+    usermod -aG sudo docker
 
 RUN echo "Europe/Geneva" > /etc/localtime
 COPY entrypoint.sh /usr/local/bin/entrypoint.sh
-RUN useradd --create-home --home-dir /home/user user
+COPY README /usr/local/share/README
+COPY WELCOME /usr/local/share/WELCOME
 
-USER user
-ENV HOME /home/user
-WORKDIR /home/user
-
-RUN git clone https://github.com/sPHENIX-Collaboration/macros.git
+USER docker
+ENV HOME /home/docker
+ENV USER docker
+WORKDIR /home/docker
 
 ENTRYPOINT ["entrypoint.sh"]
+
+CMD [""]

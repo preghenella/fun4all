@@ -1,0 +1,16 @@
+
+--------------------------------------------------------------------------------
+ Welcome to preghenella/fun4all Docker container
+--------------------------------------------------------------------------------
+
+ You if are reading this message something went wrong.
+ Make sure to run the Docker container with at least the following options
+
+ # docker run --privileged --mount type=volume,source=fun4all,target=/app preghenella/fun4all
+
+ I suggest you add a few more options and bind the current directory
+
+ # docker run --privileged --rm -it --mount type=volume,source=fun4all,target=/app --mount type=bind,source=`pwd`,target=/home/docker preghenella/fun4all
+
+--------------------------------------------------------------------------------
+
